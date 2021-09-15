@@ -1,38 +1,75 @@
-.App {
-  text-align: center;
+.header {
+  display: grid;
+  height: 48px;
+  background: grey;
+  padding: 0 2%;
+}
+.navigation {
+  display: grid;
+  grid-template-columns: 0.8fr 0.2fr;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.reddit {
+  display: grid;
+  grid-template-columns: 0.2fr 0.8fr;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.logo {
+  margin-right: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-bar {
+  display: flex;
+  width: 100%;
+  background-color: lightgrey;
+  border-radius: 2px;
+  padding: 2px;
+}
+
+.search-bar:hover {
+  border: 1px solid blue;
+  background-color: white;
+}
+
+.search-bar:focus {
+}
+
+.search-bar input {
+  background-color: inherit;
+  width: 100%;
+  border: 0px;
+}
+
+.user-panel {
+  margin: auto 0;
+  margin-left: auto;
+  height: 32px;
+}
+
+.authentication {
+  display: flex;
+}
+
+.button {
+  height: 32px;
+  border-radius: 20%;
+  background-color: white;
+}
+
+.profile {
+  border: 1px solid grey;
+}
+
+.profile:hover {
+  border: 1px solid black;
+}
+
+.flex {
+  display: flex;
+}
+
+.center {
+  align-items: center;
 }
