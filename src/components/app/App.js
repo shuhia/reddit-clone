@@ -105,6 +105,50 @@ function App() {
     <div className="App" onClick={handleAppClick}>
       {popup}
       <Header {...headerProps}></Header>
+      <div className="posts">
+        <h1>Popular posts</h1>
+        <div className="filters flex white">
+          <div className="filter">
+            <img src="" alt=""></img>
+            <button>Hot</button>
+          </div>
+          <div className="filter">
+            <img src="" alt=""></img>
+            <button>Sweden</button>
+          </div>
+          <div className="filter">
+            <img src="" alt=""></img>
+            <button>New</button>
+          </div>
+          <div className="filter">
+            <img src="" alt=""></img>
+            <button>Top</button>
+          </div>
+
+          <div className="filter">
+            <img src="" alt=""></img>
+            <button>...</button>
+          </div>
+        </div>
+        <div className="post flex white">
+          <div className="rate">
+            <div className="like">^</div>
+            <div className="rating">123</div>
+            <div className="dislike">V</div>
+          </div>
+          <div className="content">
+            <div className="header">
+              <div className="author"></div>
+              <div className="join">
+                <button>Join</button>
+              </div>
+            </div>
+            <h1></h1>
+            <p></p>
+            <footer></footer>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
