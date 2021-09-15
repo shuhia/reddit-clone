@@ -54,8 +54,8 @@
 
 .button {
   height: 32px;
-  border-radius: 20%;
-  background-color: white;
+  margin-right: 10px;
+  border-radius: 4px;
 }
 
 .profile {
@@ -72,4 +72,24 @@
 
 .center {
   align-items: center;
+}
+
+.dropdown-menu {
+  position: fixed;
+  border: 1px solid black;
+  right: 0;
+  max-height: 80%;
+  width: 211px;
+  background-color: white;
+}
+
+.dropdown-menu .item {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-menu .item:hover {
+  color: white;
+  background-color: rgb(46, 46, 209);
 }
