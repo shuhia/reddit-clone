@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import clearIcon from "./clear_black_24dp.svg";
 
 import "./App.css";
