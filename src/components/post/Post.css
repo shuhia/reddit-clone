@@ -10,4 +10,30 @@
 
 .rate {
   padding: 10px;
+  text-align: center;
+}
+
+.rating {
+  width: 4ch;
+}
+
+.post-link {
+  text-decoration: none;
+}
+
+.post-link:visited {
+  color: grey;
+}
+
+.like-button,
+.dislike-button {
+  border: 1px solid white;
+}
+
+.like-button:hover {
+  border: 1px solid orange;
+}
+
+.dislike-button:hover {
+  border: 1px solid blue;
 }
