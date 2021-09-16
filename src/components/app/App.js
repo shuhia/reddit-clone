@@ -88,9 +88,21 @@ function App() {
     console.log("app click");
   };
 
+  const [filter, setFilter] = useState("");
+
+  const handleFilter = (e) => {
+    const filterTerm = e.target.innerHTML;
+    console.log(filterTerm);
+    setFilter(filterTerm);
+  };
+
   useEffect(() => {
     return () => {};
   }, [search]);
+
+  useEffect(() => {
+    return () => {};
+  }, [filter]);
 
   const headerProps = {
     search,
@@ -110,24 +122,24 @@ function App() {
         <div className="filters flex white">
           <div className="filter">
             <img src="" alt=""></img>
-            <button>Hot</button>
+            <button onClick={handleFilter}>Hot</button>
           </div>
           <div className="filter">
             <img src="" alt=""></img>
-            <button>Sweden</button>
+            <button onClick={handleFilter}>Sweden</button>
           </div>
           <div className="filter">
             <img src="" alt=""></img>
-            <button>New</button>
+            <button onClick={handleFilter}>New</button>
           </div>
           <div className="filter">
             <img src="" alt=""></img>
-            <button>Top</button>
+            <button onClick={handleFilter}>Top</button>
           </div>
 
           <div className="filter">
             <img src="" alt=""></img>
-            <button>...</button>
+            <button onClick={handleFilter}>...</button>
           </div>
         </div>
         <div className="post flex white">
