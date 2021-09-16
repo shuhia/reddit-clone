@@ -1,0 +1,13 @@
+.post-container {
+}
+
+.post {
+  border: 1px solid lightgrey;
+}
+.post:hover {
+  border: 1px solid black;
+}
+
+.rate {
+  padding: 10px;
+}

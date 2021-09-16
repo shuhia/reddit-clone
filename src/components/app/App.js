@@ -3,8 +3,10 @@ import clearIcon from "./clear_black_24dp.svg";
 import "./App.css";
 
 import Header from "../header/Header";
+import Post from "../post/Post";
 
 import { useState, useEffect } from "react";
+import Filter from "../filter/Filter";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -96,6 +98,10 @@ function App() {
     setFilter(filterTerm);
   };
 
+  function createPost() {}
+
+  const [posts, setPosts] = useState({});
+
   useEffect(() => {
     return () => {};
   }, [search]);
@@ -118,48 +124,9 @@ function App() {
       {popup}
       <Header {...headerProps}></Header>
       <div className="posts">
-        <h1>Popular posts</h1>
-        <div className="filters flex white">
-          <div className="filter">
-            <img src="" alt=""></img>
-            <button onClick={handleFilter}>Hot</button>
-          </div>
-          <div className="filter">
-            <img src="" alt=""></img>
-            <button onClick={handleFilter}>Sweden</button>
-          </div>
-          <div className="filter">
-            <img src="" alt=""></img>
-            <button onClick={handleFilter}>New</button>
-          </div>
-          <div className="filter">
-            <img src="" alt=""></img>
-            <button onClick={handleFilter}>Top</button>
-          </div>
-
-          <div className="filter">
-            <img src="" alt=""></img>
-            <button onClick={handleFilter}>...</button>
-          </div>
-        </div>
-        <div className="post flex white">
-          <div className="rate">
-            <div className="like">^</div>
-            <div className="rating">123</div>
-            <div className="dislike">V</div>
-          </div>
-          <div className="content">
-            <div className="header">
-              <div className="author"></div>
-              <div className="join">
-                <button>Join</button>
-              </div>
-            </div>
-            <h1></h1>
-            <p></p>
-            <footer></footer>
-          </div>
-        </div>
+        <h4>Popular posts</h4>
+        <Filter handleFilter={handleFilter}></Filter>
+        <Post></Post>
       </div>
     </div>
   );
