@@ -70,17 +70,16 @@ Include areas you believe need improvement / could be improved. Also add TODOs f
 
 Room for improvement:
 
-- Improvement to be done 1
-- Improvement to be done 2
+- Add a css framework. For example: [Materialize](https://materializecss.com/), [Bootstrap](https://getbootstrap.com/) or [Tailwind](https://tailwindcss.com/)
+- Add React framework: [NextJS](https://nextjs.org/)
 
 To do:
 
-- Feature to be added 1
-- Feature to be added 2
+- Login authentication
 
 ## Acknowledgements
 
-Give credit here.
+This section provides links to where we got inspiration from. 
 
 - This project was inspired by [Reddit](https://www.reddit.com/)
 - This project was based on [this tutorial](https://www.codecademy.com/paths/front-end-engineer-career-path/tracks/fecp-react-and-redux-portfolio-project/modules/fecp-reddit-client/kanban_projects/reddit-client).
@@ -88,7 +87,7 @@ Give credit here.
 
 ## Contact
 
-Created by [Alex On](https://www.linkedin.com/in/alex-on-0a08b8107/) - feel free to contact me!
+Created by [Alex On](https://www.linkedin.com/in/alex-on-0a08b8107/) (LinkedIn profile) - feel free to contact me! 
 
 Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
 
