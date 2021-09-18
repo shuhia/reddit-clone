@@ -1,6 +1,6 @@
 # Project Name
-> Outline a brief description of your project.
-> Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
+> Link to project deployed with netlify.
+> Live demo [_here_](https://shuhia-reddit.netlify.app/). <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -25,9 +25,11 @@
 
 
 ## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
+- Redux - <!-- TODO -->
+- ReactJS - V17.0.2 
+- HTML - <!-- TODO --> 
+- CSS - <!-- TODO -->
+- JavaScript - <!-- TODO -->
 
 
 ## Features
@@ -56,7 +58,7 @@ Provide various use cases and code examples here.
 
 
 ## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
+Project is: _in progress_
 
 
 ## Room for Improvement
@@ -73,12 +75,16 @@ To do:
 
 ## Acknowledgements
 Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
+- This project was inspired by [Reddit](https://www.reddit.com/)
+- This project was based on [this tutorial](https://www.codecademy.com/paths/front-end-engineer-career-path/tracks/fecp-react-and-redux-portfolio-project/modules/fecp-reddit-client/kanban_projects/reddit-client).
+- Many thanks to Codecademy and all collaborators. 
 
 
 ## Contact
+Created by [Alex On](https://www.linkedin.com/in/alex-on-0a08b8107/) - feel free to contact me!
+
+Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+
 Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
 
 
