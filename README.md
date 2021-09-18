@@ -55,8 +55,13 @@ Proceed to describe how to install / setup one's local environment / get started
 
 ## Usage
 
-How does one go about using it?
-Provide various use cases and code examples here.
+### Search
+- Search posts
+### Filter
+- Filter posts
+### Interact with post
+- Write a comment
+- Like or dislike
 
 `write-your-code-here`
 
