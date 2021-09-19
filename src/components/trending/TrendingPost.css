@@ -1,0 +1,23 @@
+.trending-post {
+  flex-grow: 1;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  min-width: 208px;
+  border-radius: 8px;
+}
+
+.trending-post-link {
+  color: white;
+  text-decoration: none;
+}
+
+.trending-post-content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px;
+  max-width: 180px;
+  color: white;
+}

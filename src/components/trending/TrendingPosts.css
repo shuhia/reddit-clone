@@ -1,0 +1,12 @@
+.trending-posts-container {
+  max-width: 1020px;
+  padding: 0 20px;
+  margin: auto;
+}
+.trending-posts {
+  height: 208px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}

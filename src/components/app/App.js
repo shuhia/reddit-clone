@@ -7,6 +7,7 @@ import Post from "../post/Post";
 
 import { useState, useEffect } from "react";
 import Filter from "../filter/Filter";
+import TrendingPosts from "../trending/TrendingPosts";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -123,6 +124,7 @@ function App() {
     <div className="App" onClick={handleAppClick}>
       {popup}
       <Header {...headerProps}></Header>
+      <TrendingPosts></TrendingPosts>
       <div className="posts">
         <h4>Popular posts</h4>
         <Filter handleFilter={handleFilter}></Filter>
