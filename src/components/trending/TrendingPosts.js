@@ -26,7 +26,7 @@ function TrendingPosts(props) {
 
   return (
     <div className="trending-posts-container">
-      <h3>Popular posts</h3>
+      <h3>Trending posts</h3>
       <div className="trending-posts">
         {posts.map((post) => (
           <Post post={post}></Post>
