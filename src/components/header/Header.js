@@ -20,9 +20,9 @@ function Header({
     <div className="header">
       <div className="navigation">
         <div className="reddit">
-          <div className="logo">
+          <a href="#" className="logo">
             <img src={bigLogo} alt="reddit logo " height="40px"></img>
-          </div>
+          </a>
           <div
             className="search-bar"
             style={{ background: search ? "white" : "" }}

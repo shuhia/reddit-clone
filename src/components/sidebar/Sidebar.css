@@ -1,0 +1,11 @@
+.sidebar-container {
+  width: 310px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 800px) {
+  .sidebar-container {
+    display: none;
+  }
+}

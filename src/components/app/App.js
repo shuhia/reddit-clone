@@ -8,6 +8,7 @@ import Post from "../post/Post";
 import { useState, useEffect } from "react";
 import Filter from "../filter/Filter";
 import TrendingPosts from "../trending/TrendingPosts";
+import Sidebar from "../sidebar/Sidebar.js";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -125,10 +126,22 @@ function App() {
       {popup}
       <Header {...headerProps}></Header>
       <TrendingPosts></TrendingPosts>
-      <div className="posts" style={{ maxWidth: 1024, margin: "auto" }}>
-        <h4>Popular posts</h4>
-        <Filter handleFilter={handleFilter}></Filter>
-        <Post></Post>
+      <div
+        className="main"
+        style={{
+          maxWidth: 1024,
+          margin: "auto",
+          display: "flex",
+          padding: 20,
+          gap: 20,
+        }}
+      >
+        <div className="posts">
+          <h4>Popular posts</h4>
+          <Filter handleFilter={handleFilter}></Filter>
+          <Post></Post>
+        </div>
+        <Sidebar></Sidebar>
       </div>
     </div>
   );
