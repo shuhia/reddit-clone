@@ -125,7 +125,7 @@ function App() {
       {popup}
       <Header {...headerProps}></Header>
       <TrendingPosts></TrendingPosts>
-      <div className="posts" style={{ maxWidth: 1024 }}>
+      <div className="posts" style={{ maxWidth: 1024, margin: "auto" }}>
         <h4>Popular posts</h4>
         <Filter handleFilter={handleFilter}></Filter>
         <Post></Post>
