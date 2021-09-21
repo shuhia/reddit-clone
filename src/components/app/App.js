@@ -95,7 +95,7 @@ function App() {
   const [filter, setFilter] = useState("");
 
   const handleFilter = (e) => {
-    const filterTerm = e.target.innerHTML;
+    const filterTerm = e.target.value;
     console.log(filterTerm);
     setFilter(filterTerm);
   };
