@@ -39,19 +39,19 @@ function Post(props) {
 
   return (
     <div className="post-container">
-      <a className="post-link" href="#">
-        <div className="post flex white">
-          <div class="container">
-            <div className="rate">
-              <div className="like-button" onClick={handleLike}>
-                Like
-              </div>
-              <div className="rating">{likes + userLike}</div>
-              <div className="dislike-button" onClick={handleDislike}>
-                Dislike
-              </div>
+      <div className="post flex white">
+        <div class="container">
+          <div className="rating-container">
+            <div className="like-button" onClick={handleLike}>
+              <i class="bi bi-arrow-up-circle"></i>
+            </div>
+            <div className="rating">{likes + userLike}</div>
+            <div className="dislike-button" onClick={handleDislike}>
+              <i class="bi bi-arrow-down-circle"></i>
             </div>
           </div>
+        </div>
+        <a className="post-link" href="#">
           <div className="main">
             <div className="post-header flex">
               <img src="" width="20" height="20" />
@@ -76,8 +76,8 @@ function Post(props) {
               <div class="options">...</div>
             </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
   );
 }
