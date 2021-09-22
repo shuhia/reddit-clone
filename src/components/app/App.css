@@ -11,18 +11,9 @@
   background-color: white;
 }
 
-.filters {
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.filter button {
-  height: 32px;
-  margin-left: 10px;
-}
-
 .posts {
   flex: 1;
+  max-width: 100%;
 }
 
 @media screen and (max-width: 620px) {

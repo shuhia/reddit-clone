@@ -1,14 +1,16 @@
 import { React, useState } from "react";
-import "./Filter.css";
+import Filter from "./filter/Filter";
+import "./Filters.css";
+import "./filter/Filter.css";
 import faker from "faker";
 
-function Filter({ handleFilter }) {
+function Filters(props) {
+  const { handleFilter } = props;
   const [countries, setCountries] = useState(
     [...Array(5)].map(() => faker.address.country())
   );
-
   return (
-    <div className="filters flex white">
+    <div className="filters">
       <div className="filter">
         <img src="" alt=""></img>
         <button onClick={handleFilter} value="hot">
@@ -37,7 +39,6 @@ function Filter({ handleFilter }) {
           Top
         </button>
       </div>
-
       <div className="filter">
         <img src="" alt=""></img>
         <button onClick={handleFilter} value="...">
@@ -48,4 +49,4 @@ function Filter({ handleFilter }) {
   );
 }
 
-export default Filter;
+export default Filters;
