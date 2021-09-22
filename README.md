@@ -22,7 +22,9 @@
 - Provide general information about your project here.
 - What problem does it (intend to) solve?
 - What is the purpose of your project?
-- Why did you undertake it?
+### Purpose of this project
+- To complete one of the big projects in the frontend course
+- To use everything that we have learned so far. For example: React and Redux. 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 ## Technologies Used
@@ -37,15 +39,14 @@
 
 List the ready features here:
 
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+- Search for a post 
 
 ## Screenshots
-
+Version 1.0
 ![preview-1](src/previews/reddit-clone-preview-1.png)
+Version 1.1
+![preview-2](https://user-images.githubusercontent.com/66752902/134428365-b35490ba-8222-4d2b-9fd1-89b6d213f958.png)
 
-<!-- If you have screenshots you'd like to share, include them here. -->
 
 ## Setup
 
