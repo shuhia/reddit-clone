@@ -8,6 +8,19 @@
   border: 1px solid black;
 }
 
+.post-content {
+  padding: 1%;
+
+  margin: 10px;
+}
+
+.post-content-media {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
 .rate {
   padding: 10px;
   text-align: center;

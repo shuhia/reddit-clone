@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import Filter from "../filter/Filter";
 import TrendingPosts from "../trending/TrendingPosts";
 import Sidebar from "../sidebar/Sidebar.js";
+import reddit from "../api/reddit";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -102,15 +103,22 @@ function App() {
 
   function createPost() {}
 
-  const [posts, setPosts] = useState({});
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     return () => {};
   }, [search]);
 
   useEffect(() => {
+    // Filter posts
+
     return () => {};
   }, [filter]);
+
+  useEffect(() => {
+    reddit.search(search, 5, filter).then((posts) => setPosts(posts));
+    return () => {};
+  }, [filter, search]);
 
   const headerProps = {
     search,
@@ -139,6 +147,12 @@ function App() {
         <div className="posts">
           <h4>Popular posts</h4>
           <Filter handleFilter={handleFilter}></Filter>
+          {posts.map((post) => {
+            const { author, title, url, ups, subreddit_name_prefixed } = post;
+
+            console.log(post);
+            return <Post {...post}></Post>;
+          })}
           <Post></Post>
         </div>
         <Sidebar></Sidebar>

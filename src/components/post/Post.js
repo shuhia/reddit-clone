@@ -3,17 +3,10 @@ import "./Post.css";
 import { useState } from "react";
 
 function Post(props) {
-  const [likes, setLikes] = useState(0);
-  const [rating, setRating] = useState(0);
-  const [userHasRated, setUserHasRated] = useState(false);
-  const [toggle, setToggle] = useState(false);
-  const [userLike, setLike] = useState(0);
-
   const {
     author = "shuhia",
     linkSubbreddit = "#",
     timeStamp = "2 hours ago",
-    nameOfSubReddit,
     handleJoin,
     handleLike = () => {
       handleSetLike("like");
@@ -21,7 +14,16 @@ function Post(props) {
     handleDislike = () => {
       handleSetLike("dislike");
     },
+    title = "title",
+    url = "#",
+    ups: likes = 0,
+    subreddit_name_prefixed: subbredditNamePrefixed,
   } = props;
+
+  const [rating, setRating] = useState(0);
+  const [userHasRated, setUserHasRated] = useState(false);
+  const [toggle, setToggle] = useState(false);
+  const [userLike, setLike] = useState(0);
 
   function handleSetLike(type) {
     if (userLike === 1 || userLike === -1) {
@@ -34,7 +36,7 @@ function Post(props) {
       }
     }
   }
-  
+
   return (
     <div className="post-container">
       <a className="post-link" href="#">
@@ -53,7 +55,7 @@ function Post(props) {
           <div className="main">
             <div className="post-header flex">
               <img src="" width="20" height="20" />
-              <a href="#">Link</a>
+              <a href={subbredditNamePrefixed}>{subbredditNamePrefixed}</a>
               <span>Posted by</span>
               <span class="username">{author}</span>
               <span class="time">{timeStamp}</span>
@@ -63,8 +65,9 @@ function Post(props) {
             </div>
 
             <div class="post-content">
-              <h2 class="title">Title</h2>
+              <h2 class="title">{title}</h2>
               <p>Some text</p>
+              {url && <img class="post-content-media" src={url} alt=""></img>}
             </div>
             <div class="post-user-bar flex">
               <div class="comments">Comments</div>
