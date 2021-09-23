@@ -1,0 +1,23 @@
+.App {
+  background-color: #dae0e6;
+  min-height: 100vh;
+}
+
+.flex {
+  display: flex;
+}
+
+.white {
+  background-color: white;
+}
+
+.posts {
+  flex: 1;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 620px) {
+  .posts {
+    padding: 20px 0px;
+  }
+}

@@ -2,15 +2,12 @@ import clearIcon from "./clear_black_24dp.svg";
 
 import "./App.css";
 
-import Header from "../header/Header";
-import Post from "../post/Post";
-
 import { useState, useEffect } from "react";
-import Filter from "../filters/filter/Filter";
-import TrendingPosts from "../trending/TrendingPosts";
-import Sidebar from "../sidebar/Sidebar.js";
+
 import reddit from "../api/reddit";
-import Filters from "../filters/Filters";
+
+import Navbar from "../navbar/Navbar";
+import Index from "../pages/index/Index";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -102,8 +99,6 @@ function App() {
     setFilter(filterTerm);
   };
 
-  function createPost() {}
-
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -121,7 +116,7 @@ function App() {
     return () => {};
   }, [filter, search]);
 
-  const headerProps = {
+  const navbarProps = {
     search,
     handleSearch,
     handleOpenLoginForm,
@@ -133,31 +128,8 @@ function App() {
   return (
     <div className="App" onClick={handleAppClick}>
       {popup}
-      <Header {...headerProps}></Header>
-      <TrendingPosts></TrendingPosts>
-      <div
-        className="main"
-        style={{
-          maxWidth: 1024,
-          margin: "auto",
-          display: "flex",
-          padding: 20,
-          gap: 20,
-        }}
-      >
-        <div className="posts">
-          <h4>Popular posts</h4>
-          <Filters handleFilter={handleFilter}></Filters>
-          {posts.map((post) => {
-            const { author, title, url, ups, subreddit_name_prefixed } = post;
-
-            console.log(post);
-            return <Post {...post}></Post>;
-          })}
-          <Post></Post>
-        </div>
-        <Sidebar></Sidebar>
-      </div>
+      <Navbar {...navbarProps}></Navbar>
+      <Index posts={posts}></Index>
     </div>
   );
 }
