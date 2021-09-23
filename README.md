@@ -82,6 +82,9 @@ Room for improvement:
 To do:
 
 - Login authentication
+- Add a Redux store 
+- Add tests with Jest, Enzyme, and Selenium
+
 
 ## Acknowledgements
 
