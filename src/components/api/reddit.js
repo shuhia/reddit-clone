@@ -1,7 +1,7 @@
 import React from "react";
 
-function reddit() {
-  async function fetchPosts() {
+const reddit = {
+  async fetchPosts() {
     // Posts object
     const url = "";
     const header = {};
@@ -10,11 +10,18 @@ function reddit() {
     const jsonData = data.json();
     const post = {};
     return post;
-  }
+  },
 
-  async function fetchTrendingPosts() {}
-
-  async function fetchSearch() {}
-}
+  search(searchTerm, searchLimit, sortBy) {
+    return fetch(
+      `https://www.reddit.com/search.json?q=${searchTerm}&sort=${sortBy}&limit=${searchLimit}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        return data.data.children.map((data) => data.data);
+      })
+      .catch((err) => console.log(err));
+  },
+};
 
 export default reddit;

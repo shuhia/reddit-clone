@@ -1,11 +1,50 @@
 .post-container {
+  margin-bottom: 10px;
 }
 
 .post {
   border: 1px solid lightgrey;
+  display: flex;
+  width: 100%;
+  padding: 10px;
 }
-.post:hover {
+
+.post-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-left: 5px;
+}
+
+.post-content {
+  padding: 1%;
+  margin: 10px;
+  text-overflow: ellipsis;
+  border: 1px solid lightgrey;
+}
+
+.post-content:hover {
   border: 1px solid black;
+}
+
+.post-content-media {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.post-user-bar {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 5px;
+  background-color: rgba(211, 211, 211, 0.219);
+}
+
+.post-user-bar-item:hover {
+  background-color: lightgrey;
 }
 
 .rate {
@@ -13,8 +52,17 @@
   text-align: center;
 }
 
-.rating {
+.post-rating-container {
+  border: 1px solid rgba(146, 146, 146, 0.335);
+}
+
+.rating-container {
+}
+
+.likes-counter {
   width: 4ch;
+  text-align: center;
+  text-overflow: ellipsis;
 }
 
 .post-link {
@@ -28,12 +76,13 @@
 .like-button,
 .dislike-button {
   border: 1px solid white;
+  text-align: center;
 }
 
 .like-button:hover {
-  border: 1px solid orange;
+  background-color: lightgreen;
 }
 
 .dislike-button:hover {
-  border: 1px solid blue;
+  background-color: lightcoral;
 }
