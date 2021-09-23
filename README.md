@@ -22,9 +22,11 @@
 - Provide general information about your project here.
 - What problem does it (intend to) solve?
 - What is the purpose of your project?
+
 ### Purpose of this project
+
 - To complete one of the big projects in the frontend course
-- To use everything that we have learned so far. For example: React and Redux. 
+- To use everything that we have learned so far. For example: React and Redux.
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 ## Technologies Used
@@ -39,14 +41,14 @@
 
 List the ready features here:
 
-- Search for a post 
+- Search for a post
 
 ## Screenshots
+
 Version 1.0
 ![preview-1](src/previews/reddit-clone-preview-1.png)
 Version 1.1
 ![preview-2](https://user-images.githubusercontent.com/66752902/134428365-b35490ba-8222-4d2b-9fd1-89b6d213f958.png)
-
 
 ## Setup
 
@@ -57,10 +59,15 @@ Proceed to describe how to install / setup one's local environment / get started
 ## Usage
 
 ### Search
+
 - Search posts
+
 ### Filter
+
 - Filter posts
+
 ### Interact with post
+
 - Write a comment
 - Like or dislike
 
@@ -85,7 +92,7 @@ To do:
 
 ## Acknowledgements
 
-This section provides links to where we got inspiration from. 
+This section provides links to where we got inspiration from.
 
 - This project was inspired by [Reddit](https://www.reddit.com/)
 - This project was based on [this tutorial](https://www.codecademy.com/paths/front-end-engineer-career-path/tracks/fecp-react-and-redux-portfolio-project/modules/fecp-reddit-client/kanban_projects/reddit-client).
@@ -93,7 +100,7 @@ This section provides links to where we got inspiration from.
 
 ## Contact
 
-Created by [Alex On](https://www.linkedin.com/in/alex-on-0a08b8107/) (LinkedIn profile) - feel free to contact me! 
+Created by [Alex On](https://www.linkedin.com/in/alex-on-0a08b8107/) (LinkedIn profile) - feel free to contact me!
 
 Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
 

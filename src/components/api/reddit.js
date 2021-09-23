@@ -12,15 +12,16 @@ const reddit = {
     return post;
   },
 
-  search(searchTerm, searchLimit, sortBy) {
-    return fetch(
-      `https://www.reddit.com/search.json?q=${searchTerm}&sort=${sortBy}&limit=${searchLimit}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        return data.data.children.map((data) => data.data);
-      })
-      .catch((err) => console.log(err));
+  async search(searchTerm, searchLimit, sortBy) {
+    try {
+      const res = await fetch(
+        `https://www.reddit.com/search.json?q=${searchTerm}&sort=${sortBy}&limit=${searchLimit}`
+      );
+      const data = await res.json();
+      return data.data.children.map((data_1) => data_1.data);
+    } catch (err) {
+      return console.log(err);
+    }
   },
 };
 

@@ -8,6 +8,8 @@ import reddit from "../api/reddit";
 
 import Navbar from "../navbar/Navbar";
 import Index from "../pages/index/Index";
+import PostPage from "../pages/postPage/PostPage";
+import SubReddit from "../pages/subreddit/SubReddit";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -130,6 +132,8 @@ function App() {
       {popup}
       <Navbar {...navbarProps}></Navbar>
       <Index posts={posts}></Index>
+      <SubReddit></SubReddit>
+      <PostPage></PostPage>
     </div>
   );
 }
