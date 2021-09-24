@@ -12,7 +12,7 @@ import Filters from "../../filters/Filters";
 import Navbar from "../../navbar/Navbar";
 
 function Index(props) {
-  const { posts = [] } = props;
+  const { posts = [], subReddits, handleSidebarClick } = props;
   const [filter, setFilter] = useState("");
 
   const handleFilter = (e) => {
@@ -40,9 +40,11 @@ function Index(props) {
           {posts.map((post) => {
             return <Post {...post}></Post>;
           })}
-          <Post></Post>
         </div>
-        <Sidebar></Sidebar>
+        <Sidebar
+          subReddits={subReddits}
+          handleSidebarClick={handleSidebarClick}
+        ></Sidebar>
       </div>
     </div>
   );

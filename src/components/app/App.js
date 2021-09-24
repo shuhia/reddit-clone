@@ -10,11 +10,13 @@ import Navbar from "../navbar/Navbar";
 import Index from "../pages/index/Index";
 import PostPage from "../pages/postPage/PostPage";
 import SubReddit from "../pages/subreddit/SubReddit";
+import { getSubreddits, getSubredditPosts } from "../api/reddit";
 
 function App() {
   const [search, setSearch] = useState("");
   const [dropdown, setDropdown] = useState(false);
   const [popup, setPopup] = useState([]);
+  const [subReddits, setSubreddits] = useState([]);
 
   const handleSearch = (e) => {
     console.log(e.target.value);
@@ -93,6 +95,10 @@ function App() {
     console.log("app click");
   };
 
+  const handleSidebarClick = (subReddit) => {
+    getSubredditPosts(subReddit.url).then((data) => setPosts(data));
+  };
+
   const [filter, setFilter] = useState("");
 
   const handleFilter = (e) => {
@@ -118,6 +124,13 @@ function App() {
     return () => {};
   }, [filter, search]);
 
+  useEffect(() => {
+    getSubreddits().then((data) => {
+      setSubreddits(data);
+      console.log(data);
+    });
+  }, []);
+
   const navbarProps = {
     search,
     handleSearch,
@@ -131,7 +144,12 @@ function App() {
     <div className="App" onClick={handleAppClick}>
       {popup}
       <Navbar {...navbarProps}></Navbar>
-      <Index posts={posts}></Index>
+      <Index
+        posts={posts}
+        subReddits={subReddits}
+        setSubReddits={setSubreddits}
+        handleSidebarClick={handleSidebarClick}
+      ></Index>
       <SubReddit></SubReddit>
       <PostPage></PostPage>
     </div>

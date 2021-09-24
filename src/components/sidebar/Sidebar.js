@@ -1,21 +1,20 @@
 import React from "react";
 import "./Sidebar.css";
 
-function Sidebar() {
+function Sidebar(props) {
+  const { subReddits = [], handleSidebarClick } = props;
+  console.log(subReddits);
   return (
     <div className="sidebar-container">
-      <div className="sidebar-item">
-        <a href="#">Subbreddit</a>
-      </div>
-      <div className="sidebar-item">
-        <a href="#">Subbreddit</a>
-      </div>
-      <div className="sidebar-item">
-        <a href="#">Subbreddit</a>
-      </div>
-      <div className="sidebar-item">
-        <a href="#">Subbreddit</a>
-      </div>
+      {subReddits.map((subreddit) => (
+        <div
+          className="sidebar-item"
+          value={subreddit}
+          onClick={() => handleSidebarClick(subreddit)}
+        >
+          <a href="#">{subreddit.url}</a>
+        </div>
+      ))}
     </div>
   );
 }
