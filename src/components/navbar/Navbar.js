@@ -16,6 +16,38 @@ function navbar({
   dropdown,
   handleToggleDropdown,
 }) {
+  const userPanel = (
+    <div className="user-panel flex center">
+      <div className="authentication">
+        <button id="login-button" class="button" onClick={handleOpenLoginForm}>
+          Login In
+        </button>
+        <button id="signup-button" class="button">
+          Sign Up
+        </button>
+      </div>
+      <div className="profile">
+        <div className="dropdown flex center" onClick={handleToggleDropdown}>
+          <img src={personIcon} alt=""></img>
+          <img src={arrowDownIcon} alt=""></img>
+        </div>
+        {dropdown && (
+          <div className="dropdown-menu">
+            <h3>VIEW OPTIONS</h3>
+            <div class="item">
+              <img alt="" width="20px" height="20px"></img>
+              <span>Night Mode</span>
+              <button>toggle</button>
+            </div>
+            <h3>MORE STUFF</h3>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
   return (
     <div className="navbar-container">
       <div className="navbar">
@@ -39,43 +71,6 @@ function navbar({
               onClick={handleClear}
               style={{ opacity: search ? 1 : 0 }}
             />
-          </div>
-        </div>
-        <div className="user-panel flex center">
-          <div className="authentication">
-            <button
-              id="login-button"
-              class="button"
-              onClick={handleOpenLoginForm}
-            >
-              Login In
-            </button>
-            <button id="signup-button" class="button">
-              Sign Up
-            </button>
-          </div>
-          <div className="profile">
-            <div
-              className="dropdown flex center"
-              onClick={handleToggleDropdown}
-            >
-              <img src={personIcon} alt=""></img>
-              <img src={arrowDownIcon} alt=""></img>
-            </div>
-            {dropdown && (
-              <div className="dropdown-menu">
-                <h3>VIEW OPTIONS</h3>
-                <div class="item">
-                  <img alt="" width="20px" height="20px"></img>
-                  <span>Night Mode</span>
-                  <button>toggle</button>
-                </div>
-                <h3>MORE STUFF</h3>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-              </div>
-            )}
           </div>
         </div>
       </div>
