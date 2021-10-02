@@ -1,32 +1,5 @@
 import React from "react";
 
-const reddit = {
-  async fetchPosts() {
-    // Posts object
-    const url = "";
-    const header = {};
-    const options = { header };
-    const data = await fetch(url, options);
-    const jsonData = data.json();
-    const post = {};
-    return post;
-  },
-
-  async search(searchTerm, searchLimit, sortBy) {
-    try {
-      const res = await fetch(
-        `https://www.reddit.com/search.json?q=${searchTerm}&sort=${sortBy}&limit=${searchLimit}`
-      );
-      const data = await res.json();
-      return data.data.children.map((data_1) => data_1.data);
-    } catch (err) {
-      return console.log(err);
-    }
-  },
-
-  async getSubRedditPosts() {},
-};
-
 export const API_ROOT = "https://www.reddit.com";
 
 export const getSubredditPosts = async (subreddit) => {
@@ -44,10 +17,29 @@ export const getSubreddits = async () => {
 };
 
 export const getPostComments = async (permalink) => {
-  const response = await fetch(`${API_ROOT}${permalink}.json`);
+  const response = await fetch(`${API_ROOT}${permalink}/.json`);
   const json = await response.json();
 
   return json[1].data.children.map((subreddit) => subreddit.data);
+};
+
+export async function search(searchTerm, searchLimit, sortBy) {
+  try {
+    const res = await fetch(
+      `https://www.reddit.com/search.json?q=${searchTerm}&sort=${sortBy}&limit=${searchLimit}`
+    );
+    const data = await res.json();
+    return data.data.children.map((data_1) => data_1.data);
+  } catch (err) {
+    return console.log(err);
+  }
+}
+
+const reddit = {
+  search,
+  getSubredditPosts,
+  getSubreddits,
+  getPostComments,
 };
 
 export default reddit;

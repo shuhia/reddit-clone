@@ -1,12 +1,14 @@
 import React from "react";
 import "./Post.css";
 import { useState } from "react";
+import reddit from "../api/reddit";
+import Comments from "../comments/Comments";
 
 function Post(props) {
   const {
     author = "shuhia",
     linkSubbreddit = "#",
-    timeStamp = "2 hours ago",
+    created_utc = "",
     handleJoin,
     handleLike = () => {
       handleSetLike("like");
@@ -17,13 +19,16 @@ function Post(props) {
     title = "title",
     url = "#",
     ups: likes = 0,
-    subreddit_name_prefixed: subbredditNamePrefixed,
-  } = props;
+    id,
+    subreddit = "subbreddit",
+    display_name_prefixed = "",
+    permalink = "",
+  } = props.post;
 
-  const [rating, setRating] = useState(0);
-  const [userHasRated, setUserHasRated] = useState(false);
-  const [toggle, setToggle] = useState(false);
   const [userLike, setLike] = useState(0);
+  const [comments, setComments] = useState(null);
+  const [toggleComments, setToggleComments] = useState(false);
+  const hours = new Date(created_utc).getUTCHours();
 
   function handleSetLike(type) {
     if (userLike === 1 || userLike === -1) {
@@ -36,6 +41,19 @@ function Post(props) {
       }
     }
   }
+
+  const showComments = () => {
+    if (comments) {
+    } else {
+      // Fetch comments
+      console.log("fetching posts");
+      reddit
+        .getPostComments(permalink)
+        .then((comments) => setComments(comments))
+        .catch((error) => console.log(error));
+    }
+    setToggleComments((prev) => !prev);
+  };
 
   return (
     <div className="post-container">
@@ -55,13 +73,10 @@ function Post(props) {
         <div className="main">
           <div className="post-header flex">
             <img src="" width="20" height="20" />
-            <a href={subbredditNamePrefixed}>{subbredditNamePrefixed}</a>
+            <a href={subreddit}>{subreddit}</a>
             <span>Posted by</span>
             <span class="username">{author}</span>
-            <span class="time">{timeStamp}</span>
-            <div className="join">
-              <button onClick={handleJoin}>Join+</button>
-            </div>
+            <span class="time">{hours}</span>
           </div>
           <a className="post-link" href="#">
             <div class="post-content">
@@ -71,7 +86,9 @@ function Post(props) {
             </div>
           </a>
           <div class="post-user-bar flex">
-            <button class="comments post-user-bar-item">Comments</button>
+            <button class="comments post-user-bar-item" onClick={showComments}>
+              Comments
+            </button>
             <button class="share post-user-bar-item">Share</button>
             <button class="save post-user-bar-item">save</button>
             <select class="options post-user-bar-item">
@@ -80,6 +97,7 @@ function Post(props) {
           </div>
         </div>
       </div>
+      {comments && toggleComments && <Comments comments={comments}></Comments>}
     </div>
   );
 }

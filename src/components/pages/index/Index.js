@@ -38,7 +38,7 @@ function Index(props) {
           <h4>Popular posts</h4>
           <Filters handleFilter={handleFilter}></Filters>
           {posts.map((post) => {
-            return <Post {...post}></Post>;
+            return <Post post={post}></Post>;
           })}
         </div>
         <Sidebar
