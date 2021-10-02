@@ -11,6 +11,7 @@ import Index from "../pages/index/Index";
 import PostPage from "../pages/postPage/PostPage";
 import SubReddit from "../pages/subreddit/SubReddit";
 import { getSubreddits, getSubredditPosts } from "../api/reddit";
+import { useGetPostQuery } from "../../features/reddit/redditApi";
 
 function App() {
   const [search, setSearch] = useState("");
