@@ -1,5 +1,6 @@
-import { render, screen } from "@testing-library/react";
-import { getPostComments, getSubreddits, getSubredditPosts } from "./reddit";
+import reddit from "./reddit";
+
+const { search, getSubredditPosts, getSubreddits, getPostComments } = reddit;
 
 test("fetches subreddits", () => {
   const subreddits = getSubreddits();
