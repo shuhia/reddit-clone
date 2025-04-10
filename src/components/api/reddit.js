@@ -21,6 +21,17 @@ export const getPostComments = async (permalink) => {
   return json[1].data.children.map((subreddit) => subreddit.data);
 };
 
+export const getUserInfo = async (username) => {
+  try {
+    const response = await fetch(`${BASE_URI}/user/${username}/about.json`);
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    console.error('Error fetching user info:', error);
+    return null;
+  }
+};
+
 export async function search(searchTerm, searchLimit, sortBy) {
   try {
     const res = await fetch(
@@ -38,6 +49,7 @@ const reddit = {
   getSubredditPosts,
   getSubreddits,
   getPostComments,
+  getUserInfo,
 };
 
 export default reddit;

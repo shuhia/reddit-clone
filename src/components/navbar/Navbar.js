@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from "react";
 import bigLogo from "./assets/reddit_logo_horizontal_on_orangered.png";
 import searchIcon from "./assets/search_black_24dp.svg";
 import clearIcon from "./assets/clear_black_24dp.svg";
-import upArrowIcon from "./assets/up_arrow_black_24dp.svg";
 
 import "./Navbar.css";
 
@@ -13,7 +12,6 @@ function Navbar({
   handleClear,
 }) {
   const [isSticky, setIsSticky] = useState(false);
-  const [showBackToTop, setShowBackToTop] = useState(false);
   const searchInputRef = useRef(null);
 
   // Handle keyboard shortcuts
@@ -29,21 +27,16 @@ function Navbar({
     return () => document.removeEventListener('keydown', handleKeyPress);
   }, []);
 
-  // Handle scroll events for sticky navbar and back-to-top button
+  // Handle scroll events for sticky navbar
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setIsSticky(scrollPosition > 0);
-      setShowBackToTop(scrollPosition > 300);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleBackToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   return (
     <>
@@ -86,15 +79,6 @@ function Navbar({
           </div>
         </div>
       </div>
-      {showBackToTop && (
-        <button 
-          className="back-to-top"
-          onClick={handleBackToTop}
-          aria-label="Back to top"
-        >
-          <img src={upArrowIcon} alt="" aria-hidden="true" />
-        </button>
-      )}
     </>
   );
 }

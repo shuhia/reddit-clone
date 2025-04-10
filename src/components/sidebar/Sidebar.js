@@ -8,6 +8,7 @@ function Sidebar(props) {
     <div className="sidebar-container">
       {subReddits.map((subreddit) => (
         <div
+          key={subreddit.id || subreddit.url}
           className="sidebar-item"
           value={subreddit}
           onClick={() => handleSidebarClick(subreddit)}

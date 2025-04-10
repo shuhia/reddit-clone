@@ -122,36 +122,6 @@
   height: 16px;
 }
 
-/* Back to top button */
-.back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #0079d3;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  z-index: 1000;
-}
-
-.back-to-top:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.back-to-top img {
-  width: 24px;
-  height: 24px;
-  filter: brightness(0) invert(1);
-}
-
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .navbar-container {
@@ -168,13 +138,6 @@
 
   .search-bar {
     padding: 6px 12px;
-  }
-
-  .back-to-top {
-    width: 36px;
-    height: 36px;
-    bottom: 16px;
-    right: 16px;
   }
 }
 
