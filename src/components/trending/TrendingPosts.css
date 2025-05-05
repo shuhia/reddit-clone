@@ -1,12 +1,29 @@
 .trending-posts-container {
   max-width: 1020px;
-  padding: 0 20px;
+  padding: 16px;
   margin: auto;
 }
+
+.trending-posts-container h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #1a1a1b;
+}
+
 .trending-posts {
-  height: 208px;
   display: flex;
-  gap: 12px;
+  gap: 16px;
   flex-wrap: wrap;
-  overflow: hidden;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+  .trending-posts-container {
+    padding: 12px;
+  }
+
+  .trending-posts {
+    gap: 12px;
+  }
 }

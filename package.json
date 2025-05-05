@@ -17,6 +17,9 @@
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.5",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.30.3",
+    "reddit-clone": "file:",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

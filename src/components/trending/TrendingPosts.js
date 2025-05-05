@@ -1,37 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./TrendingPosts.css";
 import { TrendingPost as Post } from "./TrendingPost";
+import { getTrendingPosts } from "../api/reddit"; // Import the API function
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-function TrendingPosts(props) {
-  const {
-    posts = [
+function TrendingPosts() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchTrendingPosts = async () => {
+      const trendingPosts = await getTrendingPosts();
+      setPosts(trendingPosts);
+    };
+
+    fetchTrendingPosts();
+  }, []);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    arrows: true,
+    swipe: false,
+    responsive: [
       {
-        backgroundUrl:
-          "https://preview.redd.it/xwt5kmrlrdo71.jpg?auto=webp&s=bba3d318a958b2b7a20a48f9fd8f6e397ff56ad5",
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
       },
       {
-        backgroundUrl:
-          "https://external-preview.redd.it/zUgdgae59xAkkK8dTh9JoIGScU5qBP3QhLZ-XqBHNE0.png?format=pjpg&auto=webp&s=5569b39f12f2efeccc54d44a8820ff048206bb7d",
-      },
-      {
-        backgroundUrl:
-          "https://external-preview.redd.it/y6dQCSRlMVi05LxnQro8Wp4zxNniR1MEpVJ24gZDCnY.jpg?auto=webp&s=a24742935172db4bc904417b4f1349fe8bde1d37",
-      },
-      {
-        backgroundUrl:
-          "https://preview.redd.it/96litd38nbo71.gif?format=png8&s=aa74900e7db83fc20d4a1c1a0441bfafa6b7eedf",
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
       },
     ],
-  } = props;
+  };
 
   return (
     <div className="trending-posts-container">
       <h3>Trending posts</h3>
-      <div className="trending-posts">
+      <Slider {...settings}>
         {posts.map((post, index) => (
           <Post key={`trending-post-${index}`} post={post}></Post>
         ))}
-      </div>
+      </Slider>
     </div>
   );
 }

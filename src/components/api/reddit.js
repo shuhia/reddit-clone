@@ -27,7 +27,7 @@ export const getUserInfo = async (username) => {
     const json = await response.json();
     return json;
   } catch (error) {
-    console.error('Error fetching user info:', error);
+    console.error("Error fetching user info:", error);
     return null;
   }
 };
@@ -44,12 +44,28 @@ export async function search(searchTerm, searchLimit, sortBy) {
   }
 }
 
+export const getTrendingPosts = async () => {
+  try {
+    const response = await fetch(`${BASE_URI}/r/popular.json?limit=16`);
+    const json = await response.json();
+    return json.data.children.map((post) => ({
+      backgroundUrl: post.data.thumbnail || "",
+      title: post.data.title,
+      subreddit: post.data.subreddit,
+    }));
+  } catch (error) {
+    console.error("Error fetching trending posts:", error);
+    return [];
+  }
+};
+
 const reddit = {
   search,
   getSubredditPosts,
   getSubreddits,
   getPostComments,
   getUserInfo,
+  getTrendingPosts,
 };
 
 export default reddit;
