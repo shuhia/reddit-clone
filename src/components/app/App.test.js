@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders the Reddit-style search input', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const searchInput = screen.getByPlaceholderText(/Search Reddit/i);
+  expect(searchInput).toBeInTheDocument();
 });

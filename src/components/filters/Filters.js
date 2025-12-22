@@ -1,50 +1,39 @@
-import { React, useState } from "react";
-import Filter from "./filter/Filter";
+import { React } from "react";
 import "./Filters.css";
-import "./filter/Filter.css";
-import faker from "faker";
 
 function Filters(props) {
-  const { handleFilter } = props;
-  const [countries, setCountries] = useState(
-    [...Array(5)].map(() => faker.address.country())
-  );
+  const { handleFilter, activeFilter } = props;
+  const filters = [
+    { label: "Best", value: "best", icon: "bi-magic" },
+    { label: "Hot", value: "hot", icon: "bi-fire" },
+    { label: "New", value: "new", icon: "bi-stars" },
+    { label: "Top", value: "top", icon: "bi-graph-up" },
+    { label: "Rising", value: "rising", icon: "bi-rocket" },
+  ];
+
   return (
-    <div className="filters">
-      <div className="filter">
-        <img src="" alt=""></img>
-        <button onClick={handleFilter} value="hot">
-          Hot
+    <div className="filters" role="tablist" aria-label="Post filters">
+      {filters.map((filter) => (
+        <button
+          key={filter.value}
+          className={`filter ${activeFilter === filter.value ? "active" : ""}`}
+          onClick={handleFilter}
+          value={filter.value}
+          role="tab"
+          aria-selected={activeFilter === filter.value}
+        >
+          <i className={`bi ${filter.icon}`} aria-hidden="true"></i>
+          <span>{filter.label}</span>
         </button>
-      </div>
-      <div className="filter">
-        <img src="" alt=""></img>
-        <select className="filter" onChange={handleFilter}>
-          {countries.map((country) => (
-            <option key={country} value={country}>
-              {country}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="filter">
-        <img src="" alt=""></img>
-        <button onClick={handleFilter} value="new">
-          New
-        </button>
-      </div>
-      <div className="filter">
-        <img src="" alt=""></img>
-        <button onClick={handleFilter} value="top">
-          Top
-        </button>
-      </div>
-      <div className="filter">
-        <img src="" alt=""></img>
-        <button onClick={handleFilter} value="...">
-          ...
-        </button>
-      </div>
+      ))}
+      <button
+        className="filter more"
+        onClick={handleFilter}
+        value="random"
+        aria-label="More filters"
+      >
+        <i className="bi bi-three-dots" aria-hidden="true"></i>
+      </button>
     </div>
   );
 }
