@@ -6,6 +6,17 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+const ArrowButton = ({ direction, onClick }) => (
+  <button
+    className={`trending-arrow ${direction}`}
+    onClick={onClick}
+    aria-label={`${direction === "next" ? "Next" : "Previous"} trending item`}
+    type="button"
+  >
+    <span aria-hidden="true">{direction === "next" ? "→" : "←"}</span>
+  </button>
+);
+
 const FALLBACK_TRENDING = [
   {
     backgroundUrl:
@@ -63,8 +74,12 @@ function TrendingPosts() {
     speed: 450,
     slidesToShow: 2.6,
     slidesToScroll: 2,
-    arrows: false,
+    arrows: true,
+    nextArrow: <ArrowButton direction="next" />,
+    prevArrow: <ArrowButton direction="prev" />,
     swipe: true,
+    appendDots: (dots) => <div className="trending-dots">{dots}</div>,
+    customPaging: () => <button className="trending-dot" type="button" aria-label="Go to slide"></button>,
     responsive: [
       {
         breakpoint: 900,
