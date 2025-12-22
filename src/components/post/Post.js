@@ -74,24 +74,45 @@ function Post({ post, onError }) {
     setImageError(false);
   };
 
-  const getMediaType = useCallback((candidate) => {
-    if (!candidate) return "none";
-    if (candidate.includes("v.redd.it")) return "video";
-    if (candidate.includes("reddit.com/gallery/")) return "gallery";
-    if (candidate.includes("youtube.com") || candidate.includes("youtu.be")) return "youtube";
-    if (candidate.match(/\.(jpg|jpeg|png|gif|webp)$/i)) return "image";
-    if (candidate.startsWith("http")) return "link";
-    return "none";
-  }, []);
+  const isLikelyImage = (candidate) => {
+    if (!candidate) return false;
+    const trimmed = candidate.split("?")[0].toLowerCase();
+    const hasExtension = /\.(jpg|jpeg|png|gif|webp|bmp|jfif)$/i.test(trimmed);
+    const isRedditImageHost =
+      trimmed.includes("i.redd.it") ||
+      trimmed.includes("preview.redd.it") ||
+      (trimmed.includes("redd.it") && !trimmed.includes("v.redd.it"));
+    return hasExtension || isRedditImageHost;
+  };
+
+  const getMediaType = useCallback(
+    (candidate) => {
+      if (!candidate) return "none";
+      const normalized = candidate.toLowerCase();
+      if (normalized.includes("reddit.com/gallery/")) return "gallery";
+      if (normalized.includes("v.redd.it")) return "video";
+      if (normalized.includes("youtube.com") || normalized.includes("youtu.be")) return "youtube";
+      if (isLikelyImage(normalized)) return "image";
+      if (candidate.startsWith("http")) return "link";
+      return "none";
+    },
+    []
+  );
 
   const processUrl = useCallback(
     (candidate) => {
       if (!candidate) return "";
+      if (candidate.endsWith(".gifv")) {
+        return candidate.replace(".gifv", ".mp4");
+      }
       if (candidate.includes("youtube.com") || candidate.includes("youtu.be")) {
         const videoId = candidate.match(
           /(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\\s]{11})/
         )?.[1];
         return videoId ? `https://www.youtube.com/embed/${videoId}` : candidate;
+      }
+      if (candidate.startsWith("//")) {
+        return `https:${candidate}`;
       }
       if (candidate.startsWith("http")) return candidate;
       return `https://www.reddit.com${permalink}`;
@@ -159,6 +180,16 @@ function Post({ post, onError }) {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
+        </div>
+      );
+    }
+    if (mediaType === "gallery") {
+      return (
+        <div className="post-media error">
+          <p>This post is a gallery.</p>
+          <a href={processedUrl || `https://www.reddit.com${permalink}`} target="_blank" rel="noopener noreferrer">
+            View gallery on Reddit
+          </a>
         </div>
       );
     }
