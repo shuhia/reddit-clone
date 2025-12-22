@@ -5,7 +5,7 @@ import "./Comments.css";
 function Comments({ comments, onError }) {
   if (!comments || comments.length === 0) {
     return (
-      <div className="comments-empty" role="status">
+      <div className="comments-empty ui-card tight" role="status">
         No comments yet
       </div>
     );
@@ -13,13 +13,12 @@ function Comments({ comments, onError }) {
 
   return (
     <div className="comments" role="region" aria-label="Comments section">
-      {comments.map((comment, index) => (
-        <Comment 
-          key={comment.id || index} 
-          comment={comment} 
-          onError={onError}
-        />
-      ))}
+      <h3 className="comments-title">Discussion</h3>
+      <div className="comments-list">
+        {comments.map((comment, index) => (
+          <Comment key={comment.id || index} comment={comment} onError={onError} />
+        ))}
+      </div>
     </div>
   );
 }

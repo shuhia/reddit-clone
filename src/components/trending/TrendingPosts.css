@@ -1,105 +1,57 @@
-.trending-posts-container {
-  background: #ffffff;
-  border: 1px solid #edeff1;
-  padding: 16px;
-  border-radius: 12px;
-  margin-bottom: 16px;
-  color: #1a1a1b;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+.trending {
+  padding: var(--space-5);
+  overflow: hidden;
 }
 
 .trending-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+  gap: var(--space-3);
 }
 
-.trending-posts-container h3 {
-  font-size: 1.3rem;
-  font-weight: 800;
-  margin: 0;
-  color: #1a1a1b;
-}
-
-.eyebrow {
-  margin: 0;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #7c7f81;
-}
-
-.chip {
-  background: rgba(255, 69, 0, 0.1);
-  color: #ff4500;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 12px;
-  border: 1px solid rgba(255, 69, 0, 0.3);
-}
-
-.slick-slide {
-  padding: 6px;
+.trending-title {
+  margin: 4px 0 0;
+  font-size: 22px;
 }
 
 .trending-skeleton-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-3);
 }
 
 .trending-skeleton-card {
-  background: #f8f9fa;
-  border: 1px solid #edeff1;
-  border-radius: 10px;
-  overflow: hidden;
+  padding: var(--space-3);
 }
 
 .trending-skeleton-img {
-  height: 120px;
+  height: 150px;
+  width: 100%;
+  border-radius: var(--radius-md);
 }
 
 .trending-skeleton-text {
-  height: 18px;
-  margin: 12px;
-  border-radius: 6px;
+  height: 14px;
+  width: 60%;
+  margin-top: var(--space-3);
 }
 
-.shimmer {
-  position: relative;
-  background: #e9ecef;
-  overflow: hidden;
+.trending-slider .slick-slide {
+  padding: 12px;
 }
 
-.shimmer::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -150px;
-  height: 100%;
-  width: 150px;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.6) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  animation: shimmer 1.4s ease infinite;
+.trending-slider .slick-dots li button:before {
+  color: var(--color-primary);
+  opacity: 0.4;
 }
 
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(200%);
-  }
+.trending-slider .slick-dots li.slick-active button:before {
+  opacity: 1;
 }
 
-@media screen and (max-width: 768px) {
-  .trending-posts-container {
-    padding: 14px;
+@media (max-width: 640px) {
+  .trending {
+    padding: var(--space-4);
   }
 }

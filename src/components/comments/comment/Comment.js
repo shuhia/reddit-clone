@@ -1,18 +1,19 @@
 import React from "react";
+import { formatDistanceToNow } from "date-fns";
 import "./Comment.css";
 
 function Comment({ comment }) {
   const { body, author, created_utc } = comment;
-  const timeStamp = new Date(created_utc);
-  const hour = timeStamp.getHours();
-  return (
-    <div class="comment">
-      <div class="comment-header">
-        <span class="comment-author">{author + " "}</span>
-        <span class="comment-time-stamp">{hour} hours ago</span>
-      </div>
+  const timestamp = created_utc ? new Date(created_utc * 1000) : new Date();
+  const readableTime = formatDistanceToNow(timestamp, { addSuffix: true });
 
-      <div class="comment-body">{body}</div>
+  return (
+    <div className="comment">
+      <div className="comment-header">
+        <span className="comment-author">u/{author}</span>
+        <span className="comment-time-stamp">{readableTime}</span>
+      </div>
+      <div className="comment-body">{body}</div>
     </div>
   );
 }

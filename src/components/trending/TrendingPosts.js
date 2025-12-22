@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./TrendingPosts.css";
 import { TrendingPost as Post } from "./TrendingPost";
-import { getTrendingPosts } from "../api/reddit"; // Import the API function
+import { getTrendingPosts } from "../api/reddit";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -60,23 +60,24 @@ function TrendingPosts() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
-    slidesToShow: 2.5,
+    speed: 450,
+    slidesToShow: 2.6,
     slidesToScroll: 2,
-    arrows: true,
+    arrows: false,
     swipe: true,
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 900,
         settings: {
-          slidesToShow: 1.5,
+          slidesToShow: 1.6,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 640,
         settings: {
           slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
     ],
@@ -85,29 +86,33 @@ function TrendingPosts() {
   const dataToRender = posts.length ? posts : FALLBACK_TRENDING;
 
   return (
-    <section className="trending-posts-container" aria-labelledby="trending-title">
+    <section className="trending ui-panel" aria-labelledby="trending-title">
       <div className="trending-header">
         <div>
-          <p className="eyebrow">Happening now</p>
-          <h3 id="trending-title">Trending on Reddit</h3>
+          <p className="ui-subtle">Happening now</p>
+          <h3 id="trending-title" className="trending-title">
+            Trending on Reddit
+          </h3>
         </div>
-        <div className="chip">Live</div>
+        <div className="ui-chip">Live pulse</div>
       </div>
       {isLoading ? (
         <div className="trending-skeleton-grid">
           {Array.from({ length: 3 }).map((_, idx) => (
-            <div key={idx} className="trending-skeleton-card">
-              <div className="trending-skeleton-img shimmer"></div>
-              <div className="trending-skeleton-text shimmer"></div>
+            <div key={idx} className="trending-skeleton-card ui-card tight">
+              <div className="ui-skeleton trending-skeleton-img"></div>
+              <div className="ui-skeleton trending-skeleton-text"></div>
             </div>
           ))}
         </div>
       ) : (
-        <Slider {...settings}>
-          {dataToRender.map((post, index) => (
-            <Post key={`trending-post-${index}`} post={post}></Post>
-          ))}
-        </Slider>
+        <div className="trending-slider">
+          <Slider {...settings}>
+            {dataToRender.map((post, index) => (
+              <Post key={`trending-post-${index}`} post={post} />
+            ))}
+          </Slider>
+        </div>
       )}
     </section>
   );
