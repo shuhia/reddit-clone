@@ -55,6 +55,44 @@
   gap: 12px;
 }
 
+.post-skeleton {
+  border: 1px solid #edeff1;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.post-skeleton .vote {
+  width: 36px;
+  height: 120px;
+  border-radius: 8px;
+  background: #f6f7f8;
+}
+
+.post-skeleton .body {
+  display: grid;
+  gap: 8px;
+}
+
+.post-skeleton .body .line {
+  height: 12px;
+  border-radius: 6px;
+  background: #f6f7f8;
+}
+
+.post-skeleton .body .line.title {
+  height: 18px;
+  width: 70%;
+}
+
+.post-skeleton .body .line.footer {
+  width: 35%;
+}
+
 @media screen and (max-width: 1100px) {
   .main {
     grid-template-columns: minmax(0, 1fr);

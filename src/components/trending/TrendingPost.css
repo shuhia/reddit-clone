@@ -4,14 +4,14 @@
   border-radius: 10px;
   overflow: hidden;
   background-color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid #edeff1;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   min-height: 220px;
 }
 
 .trending-post:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
 .trending-post-link {
@@ -23,7 +23,7 @@
   height: 140px;
   background-position: center;
   background-size: cover;
-  filter: saturate(1.1);
+  filter: saturate(1.05);
 }
 
 .trending-post-details {

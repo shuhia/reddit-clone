@@ -15,6 +15,8 @@ function Index(props) {
     setFilter(filterTerm);
   };
 
+  const hasPosts = posts && posts.length > 0;
+
   return (
     <div className="page">
       <div className="page-inner">
@@ -29,9 +31,25 @@ function Index(props) {
               <Filters handleFilter={handleFilter} activeFilter={filter}></Filters>
             </div>
             <div className="post-stack">
-              {posts.map((post) => {
-                return <Post key={post.id || post.title} post={post}></Post>;
-              })}
+              {hasPosts ? (
+                posts.map((post) => {
+                  return <Post key={post.id || post.title} post={post}></Post>;
+                })
+              ) : (
+                <>
+                  {Array.from({ length: 3 }).map((_, idx) => (
+                    <div className="post-skeleton" key={`skeleton-${idx}`}>
+                      <div className="vote shimmer"></div>
+                      <div className="body">
+                        <div className="line title shimmer"></div>
+                        <div className="line shimmer"></div>
+                        <div className="line shimmer"></div>
+                        <div className="line footer shimmer"></div>
+                      </div>
+                    </div>
+                  ))}
+                </>
+              )}
             </div>
           </div>
           <Sidebar
