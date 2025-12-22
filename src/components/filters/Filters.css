@@ -1,10 +1,52 @@
 .filters {
   display: flex;
-  width: 100%;
-  background-color: white;
   flex-wrap: wrap;
-  justify-content: left;
-  gap: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
+  gap: 8px;
+}
+
+.filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #edeff1;
+  background-color: #f8f9fa;
+  color: #1a1a1b;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter i {
+  font-size: 16px;
+  color: #878a8c;
+}
+
+.filter:hover {
+  background-color: #ffffff;
+  border-color: #d7dadc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.filter.active {
+  background: #ff4500;
+  color: #ffffff;
+  border-color: #ff4500;
+  box-shadow: 0 6px 12px rgba(255, 69, 0, 0.2);
+}
+
+.filter.active i {
+  color: #ffffff;
+}
+
+.filter.more {
+  background: #ffffff;
+  color: #1a1a1b;
+}
+
+.filter:focus-visible {
+  outline: 3px solid rgba(0, 121, 211, 0.35);
+  outline-offset: 2px;
 }

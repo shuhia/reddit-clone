@@ -230,7 +230,7 @@ function Post({ post, onError }) {
 
   return (
     <div className="post-container" role="article">
-      <div className="post white">
+      <div className="post">
         <div className="post-rating-container">
           <div className="rating-container" role="group" aria-label="Post rating">
             <button 
@@ -396,4 +396,3 @@ function Post({ post, onError }) {
 }
 
 export default Post;
-

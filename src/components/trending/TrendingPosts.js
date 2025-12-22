@@ -19,13 +19,13 @@ function TrendingPosts() {
   }, []);
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    arrows: true,
-    swipe: false,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    arrows: false,
+    swipe: true,
     responsive: [
       {
         breakpoint: 768,
@@ -43,14 +43,20 @@ function TrendingPosts() {
   };
 
   return (
-    <div className="trending-posts-container">
-      <h3>Trending posts</h3>
+    <section className="trending-posts-container" aria-labelledby="trending-title">
+      <div className="trending-header">
+        <div>
+          <p className="eyebrow">Happening now</p>
+          <h3 id="trending-title">Trending on Reddit</h3>
+        </div>
+        <div className="chip">Live</div>
+      </div>
       <Slider {...settings}>
         {posts.map((post, index) => (
           <Post key={`trending-post-${index}`} post={post}></Post>
         ))}
       </Slider>
-    </div>
+    </section>
   );
 }
 

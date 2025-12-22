@@ -1,29 +1,48 @@
 .trending-posts-container {
-  max-width: 1020px;
-  padding: 16px;
-  margin: auto;
+  background: linear-gradient(120deg, #ff4500, #ff8717);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(255, 69, 0, 0.25);
+}
+
+.trending-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
 
 .trending-posts-container h3 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: #1a1a1b;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+  color: #ffffff;
 }
 
-.trending-posts {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+.eyebrow {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.chip {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.slick-slide {
+  padding: 4px;
 }
 
 @media screen and (max-width: 768px) {
   .trending-posts-container {
-    padding: 12px;
-  }
-
-  .trending-posts {
-    gap: 12px;
+    padding: 16px;
   }
 }

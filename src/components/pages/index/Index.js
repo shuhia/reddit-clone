@@ -1,50 +1,44 @@
-import clearIcon from "./clear_black_24dp.svg";
-
 import "./index.css";
 
 import Post from "../../post/Post";
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import TrendingPosts from "../../trending/TrendingPosts";
 import Sidebar from "../../sidebar/Sidebar.js";
-import reddit from "../../api/reddit";
 import Filters from "../../filters/Filters";
-import Navbar from "../../navbar/Navbar";
 
 function Index(props) {
   const { posts = [], subReddits, handleSidebarClick } = props;
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState("hot");
 
   const handleFilter = (e) => {
     const filterTerm = e.target.value;
-    console.log(filterTerm);
     setFilter(filterTerm);
   };
 
   return (
-    <div class="page">
-      <TrendingPosts></TrendingPosts>
-      <div
-        className="main"
-        style={{
-          maxWidth: 1024,
-          margin: "auto",
-          display: "flex",
-          padding: 20,
-          gap: 20,
-        }}
-      >
-        <div className="posts">
-          <h4>Popular posts</h4>
-          <Filters handleFilter={handleFilter}></Filters>
-          {posts.map((post) => {
-            return <Post post={post}></Post>;
-          })}
+    <div className="page">
+      <div className="page-inner">
+        <TrendingPosts></TrendingPosts>
+        <div className="main" id="main-content">
+          <div className="posts">
+            <div className="feed-header">
+              <div>
+                <p className="feed-eyebrow">Your personal Reddit frontpage</p>
+                <h4 className="feed-title">Home</h4>
+              </div>
+              <Filters handleFilter={handleFilter} activeFilter={filter}></Filters>
+            </div>
+            <div className="post-stack">
+              {posts.map((post) => {
+                return <Post key={post.id || post.title} post={post}></Post>;
+              })}
+            </div>
+          </div>
+          <Sidebar
+            subReddits={subReddits}
+            handleSidebarClick={handleSidebarClick}
+          ></Sidebar>
         </div>
-        <Sidebar
-          subReddits={subReddits}
-          handleSidebarClick={handleSidebarClick}
-        ></Sidebar>
       </div>
     </div>
   );

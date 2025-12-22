@@ -1,27 +1,130 @@
 .sidebar-container {
-  width: 310px;
-  background-color: white;
-  border-radius: 4px;
+  position: sticky;
+  top: 76px;
+}
 
-  padding: 20px;
+.sidebar-card {
+  background: #ffffff;
+  border: 1px solid #edeff1;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+.sidebar-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.sidebar-card__header h5 {
+  margin: 0;
+  font-size: 16px;
+  color: #1a1a1b;
+}
+
+.sidebar-card__subtitle {
+  font-size: 12px;
+  color: #7c7f81;
+}
+
+.sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .sidebar-item {
-  margin: 5px;
-}
-
-.sidebar-item a {
-  display: block;
-  padding: 20px;
-  font-size: 20px;
-  color: black;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid #f0f2f5;
+  border-radius: 8px;
+  background: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
 }
 
 .sidebar-item:hover {
-  background-color: lightblue;
+  background: #ffffff;
+  border-color: #d7dadc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
 }
 
-@media screen and (max-width: 800px) {
+.sidebar-item__rank {
+  font-weight: 700;
+  color: #7c7f81;
+  font-size: 12px;
+}
+
+.sidebar-item__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.sidebar-item__name {
+  font-weight: 600;
+  color: #1a1a1b;
+}
+
+.sidebar-item__members {
+  font-size: 12px;
+  color: #7c7f81;
+}
+
+.sidebar-item__chip {
+  background: #ff4500;
+  color: #ffffff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.sidebar-footer button {
+  width: 100%;
+  border-radius: 999px;
+  padding: 10px 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.sidebar-footer__cta {
+  background: #ff4500;
+  color: #ffffff;
+  border: 1px solid #ff4500;
+}
+
+.sidebar-footer__cta:hover {
+  box-shadow: 0 6px 14px rgba(255, 69, 0, 0.25);
+}
+
+.sidebar-footer__ghost {
+  background: #ffffff;
+  color: #1a1a1b;
+  border: 1px solid #d7dadc;
+}
+
+.sidebar-footer__ghost:hover {
+  background: #f8f9fa;
+}
+
+@media screen and (max-width: 1100px) {
   .sidebar-container {
     display: none;
   }
