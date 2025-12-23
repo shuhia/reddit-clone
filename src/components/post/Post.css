@@ -1,52 +1,58 @@
 .post-card {
   padding: var(--space-4);
+  border-radius: var(--radius-sm);
+}
+
+.post-card:hover {
+  border-color: var(--color-border-strong);
 }
 
 .post-shell {
   display: grid;
-  grid-template-columns: 86px 1fr;
-  gap: var(--space-4);
+  grid-template-columns: 58px 1fr;
+  gap: var(--space-3);
 }
 
 .post-vote {
   background: var(--color-surface-alt);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
   display: grid;
   align-content: start;
   justify-items: center;
-  gap: var(--space-2);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  gap: var(--space-1);
 }
 
 .vote-button {
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border);
-  background: white;
+  border: 1px solid transparent;
+  background: transparent;
   font-size: 16px;
   font-weight: 800;
   cursor: pointer;
-  transition: all 120ms ease;
+  color: var(--color-muted);
+  transition: color 120ms ease, background 120ms ease;
 }
 
 .vote-button:hover {
-  border-color: rgba(255, 69, 0, 0.35);
-  box-shadow: var(--shadow-faint);
+  color: var(--color-primary);
+  background: #ffeae0;
 }
 
-.vote-button.active {
-  background: linear-gradient(135deg, rgba(255, 69, 0, 0.12), rgba(255, 69, 0, 0.28));
-  border-color: var(--color-primary);
-  color: var(--color-primary-strong);
-  box-shadow: var(--shadow-soft);
+.vote-button.active.up {
+  color: var(--color-primary);
+}
+
+.vote-button.active.down {
+  color: #6f6f6f;
 }
 
 .vote-score {
   font-weight: 800;
-  font-size: 18px;
+  font-size: 15px;
   color: var(--color-text);
 }
 
@@ -57,7 +63,7 @@
 
 .post-header {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   gap: var(--space-3);
   align-items: center;
 }
@@ -74,6 +80,7 @@
   gap: 8px;
   align-items: center;
   font-weight: 700;
+  font-size: 13px;
 }
 
 .post-community {
@@ -87,25 +94,12 @@
 
 .post-author {
   color: var(--color-muted);
+  font-weight: 600;
 }
 
 .post-time {
   font-size: 12px;
   color: var(--color-muted);
-}
-
-.post-link-chip {
-  padding: 10px 12px;
-  border-radius: var(--radius-pill);
-  background: rgba(37, 99, 235, 0.08);
-  color: var(--color-accent);
-  font-weight: 700;
-  text-decoration: none;
-  border: 1px solid rgba(37, 99, 235, 0.2);
-}
-
-.post-link-chip:hover {
-  background: rgba(37, 99, 235, 0.15);
 }
 
 .post-avatar {
@@ -122,9 +116,9 @@
 
 .post-title {
   margin: 0;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 800;
-  line-height: 1.4;
+  line-height: 1.35;
   color: var(--color-text);
 }
 
@@ -140,11 +134,10 @@
 }
 
 .post-media {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid var(--color-border);
   background: var(--color-surface-alt);
-  box-shadow: var(--shadow-faint);
 }
 
 .post-media img {
@@ -164,13 +157,13 @@
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 .media-skeleton {
   width: 100%;
   height: 260px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 .post-media.error {
@@ -185,7 +178,7 @@
   gap: var(--space-3);
   border: 1px solid var(--color-border);
   padding: var(--space-3);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   background: var(--color-surface-alt);
 }
 
@@ -219,12 +212,22 @@
   gap: var(--space-2);
 }
 
+.post-user-bar .ui-button {
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+.post-user-bar .ui-button:hover {
+  background: var(--color-surface-alt);
+}
+
 .post-error {
   border: 1px solid rgba(220, 38, 38, 0.35);
   background: rgba(220, 38, 38, 0.08);
   color: #b91c1c;
   padding: var(--space-3);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 .post-comments {
@@ -245,8 +248,11 @@
   }
 
   .post-vote {
-    display: flex;
+    display: inline-flex;
     justify-content: flex-start;
+    align-items: center;
+    gap: var(--space-2);
+    width: fit-content;
   }
 
   .post-user-bar {

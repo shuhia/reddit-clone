@@ -1,21 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./TrendingPosts.css";
-import { TrendingPost as Post } from "./TrendingPost";
 import { getTrendingPosts } from "../api/reddit";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-const ArrowButton = ({ direction, onClick }) => (
-  <button
-    className={`trending-arrow ${direction}`}
-    onClick={onClick}
-    aria-label={`${direction === "next" ? "Next" : "Previous"} trending item`}
-    type="button"
-  >
-    <span aria-hidden="true">{direction === "next" ? "→" : "←"}</span>
-  </button>
-);
 
 const FALLBACK_TRENDING = [
   {
@@ -68,36 +53,6 @@ function TrendingPosts() {
     fetchTrendingPosts();
   }, []);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 450,
-    slidesToShow: 2.6,
-    slidesToScroll: 2,
-    arrows: true,
-    nextArrow: <ArrowButton direction="next" />,
-    prevArrow: <ArrowButton direction="prev" />,
-    swipe: true,
-    appendDots: (dots) => <div className="trending-dots">{dots}</div>,
-    customPaging: () => <button className="trending-dot" type="button" aria-label="Go to slide"></button>,
-    responsive: [
-      {
-        breakpoint: 900,
-        settings: {
-          slidesToShow: 1.6,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
   const dataToRender = posts.length ? posts : FALLBACK_TRENDING;
 
   return (
@@ -106,14 +61,14 @@ function TrendingPosts() {
         <div>
           <p className="ui-subtle">Happening now</p>
           <h3 id="trending-title" className="trending-title">
-            Trending on Reddit
+            Trending today
           </h3>
         </div>
-        <div className="ui-chip">Live pulse</div>
+        <div className="ui-chip">Live</div>
       </div>
       {isLoading ? (
         <div className="trending-skeleton-grid">
-          {Array.from({ length: 3 }).map((_, idx) => (
+          {Array.from({ length: 4 }).map((_, idx) => (
             <div key={idx} className="trending-skeleton-card ui-card tight">
               <div className="ui-skeleton trending-skeleton-img"></div>
               <div className="ui-skeleton trending-skeleton-text"></div>
@@ -121,12 +76,20 @@ function TrendingPosts() {
           ))}
         </div>
       ) : (
-        <div className="trending-slider">
-          <Slider {...settings}>
-            {dataToRender.map((post, index) => (
-              <Post key={`trending-post-${index}`} post={post} />
-            ))}
-          </Slider>
+        <div className="trending-grid">
+          {dataToRender.map((post, index) => (
+            <article className="trending-card" key={`trending-post-${index}`}>
+              <div
+                className="trending-thumb"
+                style={{ backgroundImage: `url(${post.backgroundUrl})` }}
+                aria-hidden="true"
+              ></div>
+              <div className="trending-meta">
+                <p className="trending-sub">r/{post.subreddit}</p>
+                <h4 className="trending-title">{post.title}</h4>
+              </div>
+            </article>
+          ))}
         </div>
       )}
     </section>

@@ -21,6 +21,26 @@ function Index({ posts = [], subReddits = [], onSidebarClick, activeFilter, onFi
               </div>
               <Filters activeFilter={activeFilter} onFilterChange={onFilterChange} />
             </div>
+
+            <div className="ui-card tight create-post-card">
+              <div className="create-post__avatar" aria-hidden="true">
+                <i className="bi bi-person"></i>
+              </div>
+              <button type="button" className="create-post__input" aria-label="Start a post">
+                Create Post
+              </button>
+              <div className="create-post__actions">
+                <button type="button" className="create-post__action">
+                  <i className="bi bi-image" aria-hidden="true"></i>
+                  <span>Image</span>
+                </button>
+                <button type="button" className="create-post__action">
+                  <i className="bi bi-link-45deg" aria-hidden="true"></i>
+                  <span>Link</span>
+                </button>
+              </div>
+            </div>
+
             <div className="ui-stack">
               {hasPosts ? (
                 posts.map((post) => <Post key={post.id || post.title} post={post} />)

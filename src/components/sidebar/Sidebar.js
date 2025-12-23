@@ -8,7 +8,7 @@ function Sidebar({ subReddits = [], onSidebarClick }) {
         <div className="sidebar-card__header">
           <div>
             <p className="ui-subtle">Communities</p>
-            <h5 className="sidebar-title">Top this week</h5>
+            <h5 className="sidebar-title">Top Communities</h5>
           </div>
           <span className="ui-chip neutral">Live</span>
         </div>
@@ -33,8 +33,8 @@ function Sidebar({ subReddits = [], onSidebarClick }) {
           ))}
         </div>
         <div className="sidebar-footer">
-          <button className="ui-button primary">Create Post</button>
-          <button className="ui-button ghost">Create Community</button>
+          <button className="ui-button primary sidebar-footer__cta">Create Post</button>
+          <button className="ui-button ghost sidebar-footer__cta">Create Community</button>
         </div>
       </div>
     </aside>
