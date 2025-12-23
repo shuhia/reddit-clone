@@ -1,65 +1,23 @@
-/* Comments.css */
-
 .comments {
-  background-color: #f6f7f8;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 16px;
-  margin-top: 16px;
+  display: grid;
+  gap: var(--space-3);
 }
 
-.comment {
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 12px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.comments-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
 }
 
-.comment-header {
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  color: #878a8c;
-  margin-bottom: 8px;
+.comments-list {
+  display: grid;
+  gap: var(--space-2);
 }
 
-.comment-header .username {
-  font-weight: bold;
-  color: #1a1a1b;
-  margin-right: 8px;
-}
-
-.comment-header .time {
-  color: #878a8c;
-}
-
-.comment-body {
-  font-size: 14px;
-  color: #1c1c1c;
-  margin-bottom: 8px;
-}
-
-.comment-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  color: #878a8c;
-}
-
-.comment-footer button {
-  background: none;
-  border: none;
-  color: #0079d3;
-  cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-
-.comment-footer button:hover {
-  background-color: #f6f7f8;
+.comments-empty {
+  border: 1px dashed var(--color-border);
+  background: rgba(15, 23, 42, 0.03);
+  color: var(--color-muted);
+  text-align: center;
+  font-weight: 700;
 }

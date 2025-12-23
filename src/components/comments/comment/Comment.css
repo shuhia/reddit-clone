@@ -1,11 +1,32 @@
 .comment {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-faint);
+}
+
+.comment-header {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px;
-  background-color: lightgrey;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 13px;
+  color: var(--color-muted);
+  margin-bottom: 6px;
 }
 
 .comment-author {
-  color: blue;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.comment-time-stamp {
+  color: var(--color-muted);
+}
+
+.comment-body {
+  margin: 0;
+  color: var(--color-text);
+  font-weight: 500;
+  line-height: 1.6;
 }

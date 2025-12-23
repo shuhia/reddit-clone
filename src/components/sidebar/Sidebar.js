@@ -1,22 +1,23 @@
 import React from "react";
 import "./Sidebar.css";
 
-function Sidebar(props) {
-  const { subReddits = [], handleSidebarClick } = props;
+function Sidebar({ subReddits = [], onSidebarClick }) {
   return (
-    <div className="sidebar-container" aria-label="Communities">
-      <div className="sidebar-card">
+    <aside className="ui-floating sidebar" aria-label="Communities">
+      <div className="ui-panel sidebar-card">
         <div className="sidebar-card__header">
-          <h5>Top Communities</h5>
-          <span className="sidebar-card__subtitle">Trending this week</span>
+          <div>
+            <p className="ui-subtle">Communities</p>
+            <h5 className="sidebar-title">Top this week</h5>
+          </div>
+          <span className="ui-chip neutral">Live</span>
         </div>
         <div className="sidebar-list">
           {subReddits.map((subreddit, index) => (
             <button
               key={subreddit.id || subreddit.url}
               className="sidebar-item"
-              value={subreddit}
-              onClick={() => handleSidebarClick(subreddit)}
+              onClick={() => onSidebarClick?.(subreddit)}
             >
               <div className="sidebar-item__rank">#{index + 1}</div>
               <div className="sidebar-item__meta">
@@ -32,11 +33,11 @@ function Sidebar(props) {
           ))}
         </div>
         <div className="sidebar-footer">
-          <button className="sidebar-footer__cta">Create Post</button>
-          <button className="sidebar-footer__ghost">Create Community</button>
+          <button className="ui-button primary">Create Post</button>
+          <button className="ui-button ghost">Create Community</button>
         </div>
       </div>
-    </div>
+    </aside>
   );
 }
 
