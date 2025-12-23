@@ -232,7 +232,7 @@ function Post({ post, onError }) {
             aria-label="Upvote post"
             aria-pressed={userLike === 1}
           >
-            ▲
+            <i className="bi bi-caret-up-fill" aria-hidden="true"></i>
           </button>
           <div className="vote-score" aria-label={`${likes + userLike} points`}>
             {likes + userLike}
@@ -243,7 +243,7 @@ function Post({ post, onError }) {
             aria-label="Downvote post"
             aria-pressed={userLike === -1}
           >
-            ▼
+            <i className="bi bi-caret-down-fill" aria-hidden="true"></i>
           </button>
         </div>
 
@@ -273,9 +273,6 @@ function Post({ post, onError }) {
                 {formattedTime}
               </span>
             </div>
-            <a className="post-link-chip" href={processedUrl} target="_blank" rel="noopener noreferrer">
-              Open post
-            </a>
           </div>
 
           <a className="post-content" href={processedUrl} target="_blank" rel="noopener noreferrer">
@@ -285,17 +282,17 @@ function Post({ post, onError }) {
 
           <div className="post-user-bar">
             <button className="ui-button icon" onClick={showComments} aria-expanded={toggleComments} disabled={isLoading}>
-              <span aria-hidden="true">💬</span>
+              <i className="bi bi-chat-dots" aria-hidden="true"></i>
               {isLoading ? "Loading..." : "Comments"}
             </button>
             <button className="ui-button icon" aria-label="Share post">
-              <span aria-hidden="true">🔗</span> Share
+              <i className="bi bi-share" aria-hidden="true"></i> Share
             </button>
             <button className="ui-button icon" aria-label="Save post">
-              <span aria-hidden="true">📎</span> Save
+              <i className="bi bi-bookmark" aria-hidden="true"></i> Save
             </button>
             <button className="ui-button icon" aria-label="More options">
-              <span aria-hidden="true">⋯</span>
+              <i className="bi bi-three-dots" aria-hidden="true"></i>
             </button>
           </div>
 
