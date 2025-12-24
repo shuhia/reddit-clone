@@ -3,6 +3,21 @@ export const BASE_URI = "https://www.reddit.com";
 const appendQueryParam = (url, param) =>
   url.includes("?") ? `${url}&${param}` : `${url}?${param}`;
 
+const fetchJson = async (url) => {
+  const response = await fetch(url, {
+    headers: {
+      Accept: "application/json",
+    },
+    credentials: "omit",
+  });
+
+  if (!response.ok) {
+    throw new Error(`Reddit request failed (${response.status})`);
+  }
+
+  return response.json();
+};
+
 const fetchJsonp = (url) =>
   new Promise((resolve, reject) => {
     if (typeof document === "undefined") {
@@ -25,7 +40,7 @@ const fetchJsonp = (url) =>
     };
 
     script.onerror = () => {
-      reject(new Error("Unable to reach Reddit"));
+      reject(new Error("Unable to reach Reddit. Please check your connection and try again."));
       cleanup();
     };
 
@@ -35,8 +50,11 @@ const fetchJsonp = (url) =>
 
 const getRedditJson = async (path) => {
   const urlWithRawJson = appendQueryParam(`${BASE_URI}${path}`, "raw_json=1");
-  const response = await fetchJsonp(urlWithRawJson);
-  return response;
+  try {
+    return await fetchJson(urlWithRawJson);
+  } catch (error) {
+    return fetchJsonp(urlWithRawJson);
+  }
 };
 
 export const getSubredditPosts = async (subreddit) => {
