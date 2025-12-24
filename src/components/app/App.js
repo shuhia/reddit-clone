@@ -30,9 +30,11 @@ function App() {
   }, [filter, search]);
 
   useEffect(() => {
-    getSubreddits().then((data) => {
-      setSubreddits(data);
-    });
+    getSubreddits()
+      .then((data) => {
+        setSubreddits(data);
+      })
+      .catch(() => setSubreddits([]));
   }, []);
 
   const navbarProps = {
